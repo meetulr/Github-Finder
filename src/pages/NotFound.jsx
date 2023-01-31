@@ -6,8 +6,8 @@ function NotFound() {
         <div>
             <div className="text-center">
                 <h1 className="display-1">Oops</h1>
-                <p className="display-3 mb-5">404 - page not found!</p>
-                <Link to="/" className="btn btn-primary btn-lg">
+                <p className="display-3">404 - page not found!</p>
+                <Link to="/" className="btn btn-primary btn-lg mt-3">
                     <div className="d-flex align-items-center">
                         <FaHome className="me-2" />
                         Back to Home

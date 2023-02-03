@@ -11,10 +11,10 @@ function Navbar2({ title }) {
             <Container fluid className="justify-content-between">
                 <div>
                     <Navbar.Brand className="d-flex align-items-center">
-                        <FaGithub className="fs-2 d-inline mr-2" />
-                        <Link to="/" className="ps-3 fs-4 fw-bold text-white text-decoration-none">
+                        <FaGithub className="fs-3 d-inline" />
+                        <Nav.Link as={Link} to="/" className="ps-3 fs-5 fw-bold text-white text-decoration-none">
                             {title}
-                        </Link>
+                        </Nav.Link>
                     </Navbar.Brand>
                 </div>
 

@@ -5,10 +5,10 @@ function Footer() {
 
     return (
         <footer className='bg-dark text-white text-center'>
-            <div className="py-2">
+            <div className="pt-2">
                 <svg
-                    width='50'
-                    height='50'
+                    width='30'
+                    height='30'
                     viewBox='0 0 24 24'
                     xmlns='http://www.w3.org/2000/svg'
                     fillRule='evenodd'

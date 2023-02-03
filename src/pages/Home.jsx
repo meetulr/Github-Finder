@@ -1,9 +1,10 @@
+import UserResults from "../components/users/UserResults"
 
 function Home() {
   return (
-    <div>
-        <h1 className="display-1">Welcome</h1>
-    </div>
+    <>
+        <UserResults />
+    </>
   )
 }
 

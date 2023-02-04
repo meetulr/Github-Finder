@@ -1,4 +1,4 @@
-import { useEffect, useContext} from "react";
+import { useContext } from "react";
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -7,11 +7,7 @@ import UserItem from "./UserItem";
 import GithubContext from "../../contexts/github/GithubContext";
 
 function UserResults() {
-    const {users, loading, fetchUsers} = useContext(GithubContext);
-
-    useEffect(() => {
-        fetchUsers();
-    }, [])
+    const {users, loading} = useContext(GithubContext);
 
     if (!loading) {
         return (

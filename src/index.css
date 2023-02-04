@@ -19,3 +19,15 @@ h1 {
 .btn-outline-secondary {
     border: 0;
 }
+
+.user-card {
+    background-color: transparent;
+    border: 0px;
+    box-shadow: 10px 10px 10px #333
+}
+
+.user-img {
+    width: 4.5rem;
+    height: 4.5rem;
+    border-radius: 50%
+}

@@ -4,13 +4,13 @@ import { Link } from "react-router-dom";
 
 function UserItem({ user: { login, avatar_url } }) {
     return (
-        <Card style={{ backgroundColor: "transparent", border: "0px", boxShadow: "10px 10px 10px #333" }} className="mb-2">
+        <Card className="mb-2 user-card">
             <div className="d-flex align-items-center">
                 <div>
                     <Card.Img variant="top"
-                        className="m-2"
+                        className="m-2 user-img"
                         src={avatar_url}
-                        style={{ width: "4.5rem", height: "4.5rem", borderRadius: "50%" }} />
+                        />
                 </div>
 
                 <div>

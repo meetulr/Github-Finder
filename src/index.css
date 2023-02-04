@@ -31,3 +31,8 @@ h1 {
     height: 4.5rem;
     border-radius: 50%
 }
+
+.left-flat {
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0
+}

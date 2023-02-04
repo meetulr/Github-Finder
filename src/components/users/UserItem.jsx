@@ -20,7 +20,7 @@ function UserItem({ user: { login, avatar_url } }) {
                             <Card.Link as={Link} to={`/users${login}`}
                                                 className="text-decoration-none text-white fs-6" 
                                                 style={{ opacity: 0.4 }}
-                                                >Card Link</Card.Link>
+                                                >Visit Profile</Card.Link>
                         </div>
                     </Card.Body>
                 </div>

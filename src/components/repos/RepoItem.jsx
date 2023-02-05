@@ -14,7 +14,7 @@ function RepoItem({ repo }) {
 
     return (
         <div className='mb-2 repo-card rounded'>
-            <div className='px-5 py-3 mb-2'>
+            <div className='px-4 py-3 mb-2'>
                 <div className='d-flex fs-5 mb-2 align-items-center'>
                     <a href={html_url} className="remove-link-decoration">
                         <FaLink />

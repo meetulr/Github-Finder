@@ -5,17 +5,29 @@ import { useParams, Link } from "react-router-dom";
 import Spinner from "../components/layout/Spinner";
 import RepoList from '../components/repos/RepoList';
 import GithubContext from "../contexts/github/GithubContext";
+import { getUserAndRepos } from '../contexts/github/GithubActions';
 
 function User() {
-    const { user, getUser, repos, getUserRepos, loading } = useContext(GithubContext);
+    const { user, repos, loading, dispatch } = useContext(GithubContext);
 
     const params = useParams();
 
     useEffect(() => {
-        getUser(params.login);
-        getUserRepos(params.login);
-        // eslint-disable-next-line react-hooks/exhaustive-deps
-    }, [])
+        dispatch({
+            type: "SET_LOADING"
+        });
+
+        const getUserData = async () => {
+            const userData = await getUserAndRepos(params.login);
+
+            dispatch({
+                type: "GET_USER_AND_REPOS",
+                payload: userData
+            });
+        }
+
+        getUserData();
+    }, [dispatch, params.login])
 
     const {
         name,
@@ -40,14 +52,14 @@ function User() {
 
     return (
         <div className='container my-3'>
-            <div className='mb-2 mx-auto'>
+            <div className='text-center mb-3 mx-auto'>
                 <Link to='/'>
                     <Button variant='outline-light' className='rborder'>Back To Search</Button>
                 </Link>
             </div>
             <div className='mb-0'>
                 <Row>
-                    <Col xs={{ span: 6, offset: 3 }} md={{ span: 5, offset: 0 }} lg={3} className="mb-3">
+                    <Col xs={{ span: 6, offset: 3 }} md={{ span: 6, offset: 0 }} lg={4} xl={3} className="mb-3">
                         <div className="position-relative">
                             <figure>
                                 <img src={avatar_url} alt="" className='img-fluid rounded fade-img' />
@@ -59,7 +71,7 @@ function User() {
                         </div>
                     </Col>
 
-                    <Col xs={12} md={7} lg={9} className="mt-1">
+                    <Col xs={12} md={6} lg={8} className="mt-1">
                         <div className='mb-1'>
                             <h1 className='fw-bold mb-3 fs-4'>
                                 {name}
@@ -84,13 +96,13 @@ function User() {
                         <div>
                             <Row>
                                 {location && (
-                                    <Col md={4} className="info-card">
+                                    <Col lg={4} className="info-card">
                                         <div className='fs-6 fw-light mt-2'>Location</div>
                                         <div className='fs-6 fw-bold mb-2'>{location}</div>
                                     </Col>
                                 )}
                                 {blog && (
-                                    <Col md={4} className="info-card">
+                                    <Col md={6} lg={4} className="info-card">
                                         <div className='fs-6 fw-light mt-2'>Website</div>
                                         <div className='fs-6 fw-bold mb-2'>
                                             <a
@@ -106,7 +118,7 @@ function User() {
                                 )}
 
                                 {twitter_username && (
-                                    <Col md={4} className="info-card">
+                                    <Col md={6} lg={4} className="info-card">
                                         <div className='fs-6 fw-light mt-2'>Twitter</div>
                                         <div className='fs-6 fw-bold mb-2'>
                                             <a

@@ -3,27 +3,44 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState, useContext } from 'react';
 import GithubContext from '../../contexts/github/GithubContext';
 import AlertContext from '../../contexts/alert/AlertContext';
+import { searchUsers } from '../../contexts/github/GithubActions';
 
 function UserSearch() {
     const [text, setText] = useState("");
 
-    const { users, searchUsers, clearResults } = useContext(GithubContext);
+    const { users, dispatch } = useContext(GithubContext);
     const { setAlert } = useContext(AlertContext);
 
     const handleChange = (e) => {
         setText(e.target.value);
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
 
         if (!text) {
             setAlert("enter something!", "error");
         }
         else {
-            searchUsers(text);
+            dispatch({
+                type: "SET_LOADING"
+            });
+
+            const users = await searchUsers(text);
+
+            dispatch({
+                type: "GET_USERS",
+                payload: users
+            });
+
             setText("");
         }
+    }
+
+    const clearResults = () => {
+        dispatch({
+            type: "CLEAR_RESULTS"
+        })
     }
 
     return (

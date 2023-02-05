@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 function UserItem({ user: { login, avatar_url } }) {
     return (
-        <Card className="mb-2 user-card">
+        <Card className="mb-3 user-card">
             <div className="d-flex align-items-center">
                 <div>
                     <Card.Img variant="top"
@@ -17,7 +17,7 @@ function UserItem({ user: { login, avatar_url } }) {
                     <Card.Body>
                         <div className="mt-2 d-flex flex-column">
                             <Card.Title className="fw-bold fs-5">{login}</Card.Title>
-                            <Card.Link as={Link} to={`/users${login}`}
+                            <Card.Link as={Link} to={`/user/${login}`}
                                                 className="text-decoration-none text-white fs-6" 
                                                 style={{ opacity: 0.4 }}
                                                 >Visit Profile</Card.Link>

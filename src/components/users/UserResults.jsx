@@ -11,10 +11,10 @@ function UserResults() {
 
     if (!loading) {
         return (
-            <Container>
-                <Row className="my-5">
+            <Container fluid className="mt-5">
+                <Row>
                     {users.map((user) => (
-                        <Col xs={12} md={6} lg={4}>
+                        <Col key={user.id} xs={12} md={6} lg={4}>
                             <UserItem key={user.id} user={user}/>
                         </Col>
                     ))}

@@ -1,5 +1,5 @@
 body {
-    background-color: #3b3b46;
+    background-color: #3d3d47;
     color: white;
 }
 
@@ -16,6 +16,12 @@ h1 {
     color: white;
 }
 
+.remove-link-decoration {
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+}
+
 .btn-outline-secondary {
     border: 0;
 }
@@ -23,7 +29,24 @@ h1 {
 .user-card {
     background-color: transparent;
     border: 0px;
-    box-shadow: 10px 10px 10px #333
+    box-shadow: 10px 10px 5px #333
+}
+
+.info-card {
+    background-color: transparent;
+    border: 0px;
+    box-shadow: 3px 3px 3px #333
+}
+
+.repo-card {
+    background-color: #2c2c35;
+    border: 0;
+    box-shadow: 3px 3px 3px #333
+}
+
+.repo-card:hover {
+    background-color: #24242b;
+    box-shadow: 0 0 0 #333
 }
 
 .user-img {
@@ -35,4 +58,31 @@ h1 {
 .left-flat {
     border-bottom-left-radius: 0;
     border-top-left-radius: 0
+}
+
+.place-alert {
+    position: absolute;
+    top: -2rem;
+}
+
+.place-login {
+    position: absolute;
+    left: 1.5rem;
+    bottom: 0rem;
+}
+
+.fade-img {
+    opacity: 0.69;
+}
+
+.rborder {
+    border-width: 0;
+}
+
+.font-small {
+    font-size: 0.75rem;
+}
+
+.badge-small {
+    font-size: 0em;
 }

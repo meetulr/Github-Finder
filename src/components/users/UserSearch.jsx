@@ -2,11 +2,13 @@ import { Container, Col, Row, Form, Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState, useContext } from 'react';
 import GithubContext from '../../contexts/github/GithubContext';
+import AlertContext from '../../contexts/alert/AlertContext';
 
 function UserSearch() {
     const [text, setText] = useState("");
 
-    const { users , searchUsers, clearResults } = useContext(GithubContext);
+    const { users, searchUsers, clearResults } = useContext(GithubContext);
+    const { setAlert } = useContext(AlertContext);
 
     const handleChange = (e) => {
         setText(e.target.value);
@@ -16,7 +18,7 @@ function UserSearch() {
         e.preventDefault();
 
         if (!text) {
-            alert("enter something first you idiot");
+            setAlert("enter something!", "error");
         }
         else {
             searchUsers(text);
@@ -25,7 +27,7 @@ function UserSearch() {
     }
 
     return (
-        <Container className='mt-5'>
+        <Container fluid className='mt-5'>
             <Row>
                 <Col xs={10} md={7} lg={5}>
                     <Form onSubmit={handleSubmit}>
@@ -44,10 +46,10 @@ function UserSearch() {
                 </Col>
                 {users.length > 0 && (
                     <Col xs={3} md={2} lg={2}>
-                        <Button variant="outline-secondary" 
-                                className="btn-md py-1"
-                                onClick={clearResults}
-                                >
+                        <Button variant="outline-secondary"
+                            className="btn-md py-1"
+                            onClick={clearResults}
+                        >
                             Clear
                         </Button>
                     </Col>

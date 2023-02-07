@@ -5,7 +5,7 @@ function Alert() {
     const { alert } = useContext(AlertContext);
 
     return alert !== null && (
-        <p className="container-fluid place-alert fs-6">
+        <p className="container-fluid place-alert fs-6 mb-0">
             {alert.type === "error" && (
                 <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink"
                     viewBox="0 0 50 50" xmlSpace="preserve" width="1rem" height="1rem" className="me-2">
